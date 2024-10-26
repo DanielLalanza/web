@@ -1,0 +1,13 @@
+#container p {
+    color: tomato;
+}
+
+#container {
+    background-color: blueviolet;
+}
+
+body {
+    background-image: url(../img/egg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
