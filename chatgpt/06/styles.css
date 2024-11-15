@@ -1,0 +1,113 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+/* Galería con transición */
+.gallery {
+    overflow: hidden;
+    width: 100%;
+}
+
+.gallery-container {
+    display: flex;
+    width: 300%; /* Suficiente para contener todas las imágenes */
+    animation: slide 9s infinite linear;
+}
+
+.gallery-item {
+    flex: 1 1 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Animación de deslizamiento continua */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(-100%); }
+    66.66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+/* Cards con Flexbox */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.card {
+    flex: 1 1 calc(30% - 1rem);
+    max-width: calc(30% - 1rem);
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-content h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(100% - 1rem);
+        max-width: calc(100% - 1rem);
+    }
+}

@@ -1,0 +1,86 @@
+/* Estilos base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .logo img {
+    width: 50px;
+    height: 50px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav .menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+
+nav .menu li {
+    margin: 0;
+}
+
+nav .menu a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    background-color: #555;
+    border-radius: 5px;
+}
+
+nav .menu a:hover {
+    background-color: #777;
+}
+
+/* Estilos Mobile First (pequeñas pantallas) */
+main {
+    padding: 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+/* Media Query para pantallas más grandes */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    nav .menu {
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
