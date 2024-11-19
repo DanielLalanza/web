@@ -31,7 +31,7 @@ main {
 .gallery-container {
     display: flex;
     width: 300%; /* Suficiente para contener todas las imágenes */
-    animation: slide 9s infinite linear;
+    animation: slide 7s infinite linear;
 }
 
 .gallery-item {

@@ -9,7 +9,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f3f3f3;
     color: #333;
-    margin: 0 17rem;
+    margin: 0 10rem;
 }
 
 header {
@@ -19,12 +19,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 -17rem;
+    margin: 0 -10rem;
 }
 
 header .logo {
     display: flex;
     align-items: center;
+    text-decoration: none;
+}
+
+header .logo a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
 }
 
 header .logo img {
