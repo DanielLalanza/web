@@ -22,8 +22,8 @@ header {
     justify-content: space-between;
     align-items: center;
     margin: 0 0;
-    position: absolute;
-    z-index: 2;
+    position: relative;
+    z-index: 10;
 }
 
 header .logo {
@@ -50,6 +50,38 @@ header nav a {
 
 header nav a:hover {
     text-decoration: underline;
+}
+
+/* Barra informativa */
+.info-bar {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 0;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    overflow: hidden; /* Oculta el contenido que se sale del contenedor */
+    position: relative;
+    z-index: 2;
+}
+
+.info-content {
+    display: flex;
+    animation: scroll-text 20s linear infinite; /* Desplazamiento continuo */
+}
+
+.info-content p {
+    margin: 0 20px; /* Espaciado entre los mensajes */
+}
+
+/* Animación para el desplazamiento del contenido */
+@keyframes scroll-text {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .hero {
