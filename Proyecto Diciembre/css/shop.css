@@ -9,7 +9,6 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f3f3f3;
     color: #333;
-    margin: 0 10rem;
 }
 
 header {
@@ -19,7 +18,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 -10rem;
+}
+
+main {
+    margin: 0 10rem;
 }
 
 header .logo {
@@ -55,7 +57,7 @@ main {
 
 .product-grid {
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
     justify-content: center;
 }
 
@@ -65,15 +67,25 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
     text-align: center;
-    width: 250px;
+    width: 300px;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card:hover .product-img  {
+    transform: scale(1.15);
+    transition: transform 0.3s ease;
 }
 
 .product-img {
     background-color: #ddd;
     border-radius: 10px;
-    height: 200px;
-    width: 200px;
-    margin-bottom: 1rem;
+    height: 250px;
+    width: 250px;
+    transform: scale(1.1);
+    margin-bottom: 1.2rem;
 }
 
 .product-img img {
@@ -104,4 +116,92 @@ main {
 .product-grid {
     flex-wrap: wrap;
     margin: 0 -1rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 1rem;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Alinea los elementos a los lados */
+    align-items: center; /* Centra verticalmente */
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Permite que los elementos se apilen en pantallas pequeñas */
+    gap: 1rem; /* Espaciado entre los elementos */
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.footer-logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.footer-links,
+.footer-social {
+    display: flex;
+    flex-direction: row; /* Los enlaces y redes sociales estarán en columnas en pantallas pequeñas */
+    gap: 2rem;
+}
+
+.footer-links a,
+.footer-social a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: #007BFF; /* Cambia de color al pasar el mouse */
+}
+
+.footer-copy {
+    flex-basis: 100%; /* Ocupa toda la fila en pantallas pequeñas */
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    header nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .footer-container {
+        flex-direction: column; /* Cambia el diseño a columnas en móviles */
+        align-items: center; /* Centra los elementos */
+        text-align: center; /* Asegura que todo esté alineado al centro */
+    }
+
+    .footer-logo {
+        margin-left: 0; /* Elimina el margen izquierdo para centrar en móviles */
+        text-align: center;
+    }
+    
+    .product-card{
+        width: 250px;
+    }
+
+    .product-img{
+        height: 200px;
+        width: 200px;
+    }
 }
