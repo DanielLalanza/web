@@ -30,6 +30,12 @@ header {
 header .logo {
     display: flex;
     align-items: center;
+    
+}
+
+header .logo:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
 }
 
 header .logo a {
@@ -95,11 +101,11 @@ header nav {
 }
 
 .hero {
-    background-image: url(../img/bg.jpg); /* Cambia esta URL por tu imagen */
+    background-image: url(../img/bg3.jpg); /* Cambia esta URL por tu imagen */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 90vh; /* Ocupa toda la altura de la pantalla */
+    height: 78vh; /* Ocupa toda la altura de la pantalla */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -113,7 +119,7 @@ header nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: 102%;
+    height: 93%;
     background: rgba(0, 0, 0, 0.203); 
     backdrop-filter: blur(3px); /* Ajusta el nivel de difuminado */
     z-index: 1; /* Ubica el difuminado detrás del contenido */
@@ -138,6 +144,12 @@ header nav {
     margin-top: -5rem;
     margin-right: -10rem;
     margin-left: -10rem;
+    transition: all 0.3s ease;
+}
+
+.hero-content h1:hover {
+    transform: scale(1.03);
+    transition: all 0.3s ease;
 }
 
 .btn {
@@ -148,7 +160,7 @@ header nav {
 
     color: #fafafa;
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: 3px;
     background-color: #f39c12;
     cursor: pointer;
     text-decoration: none;
@@ -159,7 +171,10 @@ header nav {
     box-shadow: none;
     transform: translate(3px, 3px);
     transition: all 0.5s ease;
-    background-color: hsl(210, 100%, 41%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    background-color: #e18f0c;
+    font-size: 1.6rem;
+    
 }
 
 
@@ -211,6 +226,7 @@ header nav {
 
 @media (max-width:1452px) {
     .hero {
+      display: flex;
       flex-direction: column;
       height: 110vh;
     }
@@ -228,7 +244,7 @@ header nav {
     .hero-content {
        margin-left: 0;
        margin-right: 0;
-       margin-bottom: -40rem;
+       margin-bottom: 0;
     }
     .btn{
         margin-right: -10rem;
@@ -246,10 +262,9 @@ header nav {
 
 .info-cards {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    grid-template-columns: 1fr; /* Una columna para móviles */
-    gap: 1rem;
+    gap: 1rem; /* Espacio entre tarjetas */
+    justify-content: center; /* Centra las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en varias filas si es necesario */
 }
 
 .info-section h2 {
@@ -260,17 +275,28 @@ header nav {
 .info-card {
     background-color: #ffffff86;
     border-radius: 10px;
-    padding: 1rem;
-    transition: transform 0.3s ease;
     text-align: center;
-    width: 200px;
-    height: 200px;
+    padding: 1rem;
+    width: 200px; /* Tamaño fijo para las tarjetas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info-card:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* Ligeramente más grande */
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .info-card img {
@@ -280,52 +306,158 @@ header nav {
     margin-bottom: 1rem;
     margin-top: 1rem;
     object-fit: contain; /* Ajusta la imagen si el tamaño no coincide */
+    animation: pulse 2s infinite;
 }
 
 .info-card h3 {
     margin: 0.5rem 0;
     font-size: 1rem;
+    animation: pulse 2s infinite;
+}
+
+/* Estilos generales */
+.testimonials {
+    background-color: #222222;
+    color: rgb(27, 27, 27);
+    padding: 3rem 1rem;
+    text-align: center;
+    overflow: hidden; /* Oculta los testimonios fuera del contenedor */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.testimonials h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #f39c12;
+    text-shadow: 0 4px 8px rgba(0, 0, 1, 0.282);
+    transition: all 0.3s ease;
+}
+.testimonials h2:hover {
+    font-size: 2.05rem;
+    transition: all 0.3s ease;
 }
 
 .testimonials {
-    background-color: #333;
-    color: white;
-    padding-bottom: 4.5rem;
-    text-align: center;
+    align-items: center;
 }
 
-.testimonials .testimonial {
-    margin-bottom: 1rem;
+/* Contenedor de testimonios */
+.testimonial-container {
+    position: relative;
+    width: 50%;
+    overflow: hidden; /* Oculta los elementos fuera del área visible */
+    margin: 0 auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #fafafad2;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0.5, 0.5);
+    transition: all 0.3s ease;
+}
+
+.testimonial-container:hover {
+    transform: scale(1.03);
+    padding-top: 1.05rem;
+    padding-bottom: 1.05rem;
+    padding-left: 5px;
+    padding-right: 5px;
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.testimonial-slide {
+    display: flex;
+    white-space: nowrap; /* Asegura que todos los elementos estén en línea */
+    animation: slide-testimonials 0s linear infinite; /* Animación infinita */
+}
+
+/* Cada testimonio ocupa el 100% del contenedor */
+.testimonial {
+    display: inline-block;
+    min-width: 100%; /* Cada testimonio ocupa el 100% del ancho */
+    box-sizing: border-box;
+    padding: 1rem;
+    text-align: center;
     font-style: italic;
 }
 
-.testimonials .testimonial span {
+.testimonial span {
     display: block;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     font-weight: bold;
     color: #f39c12;
 }
 
-.testimonials h2 {
-    padding-top: 2rem;
-    margin-bottom: 20px;
+/* Animación de deslizamiento con pausa */
+@keyframes slide-testimonials {
+    0%, 10% {
+        transform: translateX(0); /* Primer testimonio */
+    }
+    20%, 30% {
+        transform: translateX(-100%); /* Segundo testimonio */
+    }
+    40%, 50% {
+        transform: translateX(-200%); /* Tercer testimonio */
+    }
+    60%, 70% {
+        transform: translateX(-300%); /* Cuarto testimonio */
+    }
+    80%, 90% {
+        transform: translateX(-400%); /* Quinto testimonio */
+    }
+    100%, 110% {
+        transform: translateX(-500%); /* Sexto testimonio */
+    }
+    120%, 130% {
+        transform: translateX(-600%); /* Séptimo testimonio */
+    }
+    140%, 150% {
+        transform: translateX(-700%); /* Octavo testimonio */
+    }
+    160%, 170% {
+        transform: translateX(-800%); /* Noveno testimonio */
+    }
+    180%, 190% {
+        transform: translateX(-900%); /* Décimo testimonio */
+    }
+    200% {
+        transform: translateX(0); /* Regresa al primer testimonio */
+    }
+}
+
+
+/* Ajustar el contenedor para que la animación fluya correctamente */
+.testimonial-slide {
+    animation: slide-testimonials 25s linear infinite; /* Aumenta la duración total */
 }
 
 .location {
-    background-color: #fff;
+    background-color:  #d0d0d089;
     padding: 1rem 1rem;
     text-align: center;
     border-radius: 10px;
 }
 .location h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     padding-bottom: 1rem;
+}
+.location h2:hover {
+    font-size: 2.05rem;
+    transition: all 0.5s ease; /* Smooth transition */
 }
 .location iframe {
     border-radius: 10px;
     width: 50%;
     height: 440px;
     margin-bottom: 1rem;
+}
+
+.location iframe:hover {
+    transform: scale(1.01);
+    transition: all 0.3s ease; /* Smooth transition */
 }
 
 
@@ -416,4 +548,3 @@ footer {
         margin-bottom: 1rem;
     }
 }
-
