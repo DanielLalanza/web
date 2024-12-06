@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    background: linear-gradient(135deg, #ff7e39, #ffae42, #ffa500);
     color: #333;
     margin: 0;
 }
@@ -60,7 +60,7 @@ header nav {
 }
 
 main {
-    padding: 2rem 10rem;
+    padding: 2rem 25rem;
 }
 
 .about-us, .our-values, .support {
@@ -73,7 +73,7 @@ main {
 }
 
 .about-us p, .our-values ul, .support ul {
-    text-align: justify;
+    text-align: center;
 }
 
 .our-values ul {
@@ -81,12 +81,12 @@ main {
     padding: 0;
     margin: 0;
     max-width: 400px;
-    text-align: justify;
+    text-align: center;
 }
 
 h2 {
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-align: center;
 }
 
@@ -94,12 +94,14 @@ p, ul {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1rem;
-    text-align: justify;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    text-align: center;
 }
 
 ul li {
     margin: 0.5rem 0;
-    text-align: left;
+    text-align: justify;
 }
 
 .support-form {
