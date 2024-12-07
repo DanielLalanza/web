@@ -14,18 +14,27 @@ body, html {
     scroll-behavior: smooth;
 }
 
+
+
 header {
     background-color: #333;
     color: #fff;
     padding: 1rem 2rem;
-    display: flex;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
     position: relative;
     z-index: 10;
+    margin: 0; /* Quita cualquier margen extra */
 }
+
+.header-container {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 2rem; /* Ajusta este padding según el espacio que desees */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 header .logo {
     display: flex;
@@ -101,16 +110,18 @@ header nav {
 }
 
 .hero {
-    background-image: url(../img/bg3.jpg); /* Cambia esta URL por tu imagen */
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Ajustamos la altura del hero */
+    background-image: url(../img/bg3.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 78vh; /* Ocupa toda la altura de la pantalla */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
+    overflow: hidden;
+    display: flex; /* Flexbox para organizar el contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    padding: 0 2rem;
 }
 
 .hero::before {
@@ -119,69 +130,59 @@ header nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: 93%;
-    background: rgba(0, 0, 0, 0.203); 
-    backdrop-filter: blur(3px); /* Ajusta el nivel de difuminado */
-    z-index: 1; /* Ubica el difuminado detrás del contenido */
+    height: 100%; /* Cubre todo el hero */
+    background: rgba(0, 0, 0, 0.4); /* Oscurece el fondo */
+    backdrop-filter: blur(3px); /* Desenfoque */
+    z-index: 1; /* Detrás del contenido */
 }
 
+.hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1380px;
+    width: 100%;
+    display: flex; /* Cambiamos a flex para organizar tarjetas y contenido principal */
+    flex-direction: row; /* Tarjetas y texto en línea horizontal */
+    align-items: center;
+    justify-content: space-between; /* Separación entre las tarjetas y el contenido */
+    height: 100%;
+}
 
 .hero-content {
-    position: relative;
-    text-align: center;
-    z-index: 2;
+    flex: 1; /* Ocupa el espacio disponible a la derecha */
     color: #fff;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-    flex-basis: 50%;
-    margin-right: 200px;
-    margin-left: 100px;
-    padding: 0;
+    text-align: center;
 }
 
 .hero-content h1 {
     font-size: 3rem;
-    margin-bottom: 3rem;
-    margin-top: -5rem;
-    margin-right: -10rem;
-    margin-left: -10rem;
+    margin-bottom: 1.5rem;
     transition: all 0.3s ease;
 }
 
 .hero-content h1:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
     transition: all 0.3s ease;
 }
 
 .btn {
     font-size: 1.5rem;
-    font-family: 'Roboto', sans-serif; /* Cambia la fuente a Roboto */
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);    
-
-    color: #fafafa;
     padding: 10px 20px;
     border-radius: 3px;
     background-color: #f39c12;
-    cursor: pointer;
+    color: #fafafa;
     text-decoration: none;
+    cursor: pointer;
     transition: all 0.5s ease;
 }
 
 .btn:hover {
-    box-shadow: none;
-    transform: translate(3px, 3px);
-    transition: all 0.5s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
     background-color: #e18f0c;
-    font-size: 1.6rem;
-    
-}
-
-
-.info-section {
-    padding: 2rem 1rem;
-    text-align: center;
-    z-index: 5;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .scroll-down {
@@ -208,11 +209,9 @@ header nav {
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0) rotate(45deg);
-        transition: transform 0.3s ease-in-out;
     }
     50% {
         transform: translateY(10px) rotate(45deg);
-        transition: transform 0.3s ease-in-out;
     }
 }
 
@@ -223,48 +222,21 @@ header nav {
     margin-top: 10px;
 }
 
-
-@media (max-width:1452px) {
-    .hero {
-      display: flex;
-      flex-direction: column;
-      height: 110vh;
-    }
-    .hero-content, .info-section {
-      flex-basis: 100%;
-    }
-    .info-card {
-        flex-basis: 30%;
-    }
-    .hero-content h1 {
-        font-size: clamp(2rem, 2vw + 1rem, 4rem);
-        word-wrap: break-word;
-        white-space: normal;
-    }
-    .hero-content {
-       margin-left: 0;
-       margin-right: 0;
-       margin-bottom: 0;
-    }
-    .btn{
-        margin-right: -10rem;
-        margin-left: -10rem;
-        margin-top: 100px;
-    }
-    .info-card {
-        flex-basis: 40%;
-    }
-    iframe{
-       margin: 0;
-    }
-
-}
-
 .info-cards {
     display: flex;
     gap: 1rem; /* Espacio entre tarjetas */
     justify-content: center; /* Centra las tarjetas */
     flex-wrap: wrap; /* Permite que las tarjetas se ajusten en varias filas si es necesario */
+}
+
+.info-section {
+    flex: 1; /* Ocupa el espacio disponible a la izquierda */
+    display: flex;
+    flex-wrap: wrap; /* Permite organizar las tarjetas en filas */
+    gap: 1.5rem; /* Espaciado entre tarjetas */
+    justify-content: center; /* Centra las tarjetas dentro del contenedor */
+    align-items: center;
+    max-width: 400px; /* Limita el tamaño del cuadrado */
 }
 
 .info-section h2 {
@@ -273,11 +245,16 @@ header nav {
 }
 
 .info-card {
-    background-color: #ffffff86;
+    background-color: rgba(255, 255, 255, 0.577);
     border-radius: 10px;
     text-align: center;
-    padding: 1rem;
-    width: 200px; /* Tamaño fijo para las tarjetas */
+    padding: 1.5rem; /* Más espacio interno */
+    width: 160px; /* Tamaño más grande */
+    height: 160px; /* Mantén las tarjetas cuadradas */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -300,17 +277,11 @@ header nav {
 }
 
 .info-card img {
-    max-width: 100px; /* Tamaño fijo para las imágenes */
-    width: 100%; /* Adaptable a diferentes anchos */
-    height: auto; /* Mantén la proporción de la imagen */
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    object-fit: contain; /* Ajusta la imagen si el tamaño no coincide */
-    animation: pulse 2s infinite;
+    max-width: 80px; /* Aumenta el tamaño de los íconos */
+    object-fit: contain;
 }
 
 .info-card h3 {
-    margin: 0.5rem 0;
     font-size: 1rem;
     animation: pulse 2s infinite;
 }
@@ -318,15 +289,14 @@ header nav {
 /* Estilos generales */
 .testimonials {
     background-color: #222222;
-    color: rgb(27, 27, 27);
+    color: #1e1e1e;
     padding: 3rem 1rem;
     text-align: center;
-    overflow: hidden; /* Oculta los testimonios fuera del contenedor */
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
+    align-items: center;
+    overflow: hidden; /* Asegura que el contenido no desborde */
 }
 
 .testimonials h2 {
@@ -339,10 +309,6 @@ header nav {
 .testimonials h2:hover {
     font-size: 2.05rem;
     transition: all 0.3s ease;
-}
-
-.testimonials {
-    align-items: center;
 }
 
 /* Contenedor de testimonios */
@@ -370,7 +336,7 @@ header nav {
 
 .testimonial-slide {
     display: flex;
-    white-space: nowrap; /* Asegura que todos los elementos estén en línea */
+    white-space: wrap; /* Asegura que todos los elementos estén en línea */
     animation: slide-testimonials 0s linear infinite; /* Animación infinita */
 }
 
@@ -518,18 +484,111 @@ footer {
     color: #aaa;
 }
 
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    header {
+@media (max-width:964px) {
+    .header-container {
         flex-wrap: wrap;
-        padding: 1rem;
+        justify-content: center;
+        text-align: center;
     }
 
-    header nav {
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-right: 0;
+    .header-container nav a {
+        margin: 0.5rem; /* Ajusta espaciados en móviles */
     }
+
+    .header-container .logo {
+        padding-right: 20px;
+    } 
+
+    .hero {
+        flex-direction: column; /* Apilado verticalmente */
+        height: auto;
+        padding: 2rem 1rem;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        max-width: 100%;
+        padding: 1.5rem 1rem; /* Espaciado extra para todo el hero */
+    }
+
+    .hero-content {
+        text-align: center;
+        margin-bottom: 2.5rem; /* Más separación con las tarjetas */
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem; /* Mantiene protagonismo */
+        margin-bottom: 1.5rem; /* Separación con el botón */
+    }
+
+    .btn {
+        font-size: 1.4rem;
+        padding: 1rem 2rem;
+        margin: 1.5rem auto; /* Más separación entre el botón y las tarjetas */
+    }
+
+    .info-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem; /* Espaciado más amplio entre tarjetas */
+        width: 100%;
+        margin-top: 2rem; /* Espacio adicional entre el botón y las tarjetas */
+    }
+    .info-card {
+        width: 42%; /* Ocupan menos espacio */
+        height: auto;
+        padding: 0.8rem;
+    }
+
+    .info-card img {
+        max-width: 35px;
+        margin-bottom: 0.5rem;
+    }
+
+    .info-card h3 {
+        font-size: 0.8rem;
+    }
+
+    iframe{
+       margin: 0;
+    }
+
+    .testimonials {
+        padding: 2rem 1rem;
+    }
+
+    .testimonial-container {
+        max-width: 100%;
+        width: 90%;
+    }
+
+    
+    .footer-container {
+        flex-direction: column; /* Cambia el diseño a columnas en móviles */
+        align-items: center; /* Centra los elementos */
+        text-align: center; /* Asegura que todo esté alineado al centro */
+    }
+
+    .footer-logo {
+        margin-left: 0; /* Elimina el margen izquierdo para centrar en móviles */
+        text-align: center;
+    }
+
+    .location iframe {
+        border-radius: 10px;
+        width: 100%;
+        height: 440px;
+        margin-bottom: 1rem;
+    }
+
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
     .footer-container {
         flex-direction: column; /* Cambia el diseño a columnas en móviles */
         align-items: center; /* Centra los elementos */
@@ -548,3 +607,4 @@ footer {
         margin-bottom: 1rem;
     }
 }
+

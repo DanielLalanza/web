@@ -27,18 +27,31 @@ header {
     background-color: #333;
     color: #fff;
     padding: 1rem 2rem;
-    display: flex;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
     position: relative;
     z-index: 10;
+    margin: 0; /* Quita cualquier margen extra */
 }
+
+.header-container {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 2rem; /* Ajusta este padding según el espacio que desees */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 header .logo {
     display: flex;
     align-items: center;
+    
+}
+
+header .logo:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
 }
 
 header .logo a {
@@ -112,6 +125,7 @@ main {
     width: 250px;
     transform: scale(1.1);
     margin-bottom: 1.2rem;
+    transition: transform 0.3s ease;
 }
 
 .product-img img {
@@ -210,15 +224,19 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header {
+    .header-container {
         flex-wrap: wrap;
-        padding: 1rem;
+        justify-content: center;
+        text-align: center;
     }
 
-    header nav {
-        flex-wrap: wrap;
-        gap: 1rem;
+    .header-container nav a {
+        margin: 0.5rem; /* Ajusta espaciados en móviles */
     }
+
+    .header-container .logo {
+        padding-right: 20px;
+    } 
     .footer-container {
         flex-direction: column; /* Cambia el diseño a columnas en móviles */
         align-items: center; /* Centra los elementos */
